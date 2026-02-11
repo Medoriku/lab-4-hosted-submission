@@ -40,6 +40,19 @@ function saveEvent() {
   const modalityValue = document.getElementById('event_modality').value;
   // Ensure required attributes are set based on current modality
   updateLocationOptions(modalityValue);
+  // Additional JS-level validation for Remote URL to guard against hosting/deploy lag
+  const remoteUrlInputEl = document.getElementById('event_remote_url');
+  const remoteUrlPattern = /^https?:\/\/(?:www\.)?[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+(?:[\/?#][^\s]*)?$/;
+  if (modalityValue === 'remote') {
+    const val = remoteUrlInputEl.value.trim();
+    if (!remoteUrlPattern.test(val)) {
+      remoteUrlInputEl.setCustomValidity('Please enter a full URL starting with http(s):// and a valid domain.');
+      remoteUrlInputEl.reportValidity();
+      return;
+    } else {
+      remoteUrlInputEl.setCustomValidity('');
+    }
+  }
   if (!form.reportValidity()) {
     return;
   }

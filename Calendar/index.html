@@ -100,7 +100,8 @@
               </div>
               <div class="mb-3 hidden" id="remote_url_field">
                 <label for="event_remote_url" class="form-label">Remote URL</label>
-                <input type="text" class="form-control" id="event_remote_url" placeholder="Enter meeting URL (e.g., https://zoom.us/...)" pattern="^https?:\/\/(?:www\.)?[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+(?:[\/?#][^\s]*)?$">
+                <input type="url" class="form-control" id="event_remote_url" placeholder="Enter meeting URL (e.g., https://zoom.us/...)" pattern="^https?:\/\/(?:www\.)?[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)+(?:[\/?#][^\s]*)?$">
+                <div class="form-text">Use a full URL starting with http(s)://</div>
               </div>
               <div class="mb-3">
                 <label for="event_category" class="form-label">Category</label>
